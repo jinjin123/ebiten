@@ -46,7 +46,7 @@ func TestMain(m *testing.M) {
 
 func TestTextColor(t *testing.T) {
 	clr := color.RGBA{0x80, 0x80, 0x80, 0x80}
-	img, _ := ebiten.NewImage(30, 30, ebiten.FilterNearest)
+	img := ebiten.NewImage(30, 30)
 	Draw(img, "Hello", bitmapfont.Gothic12r, 12, 12, clr)
 
 	w, h := img.Size()

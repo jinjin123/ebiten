@@ -32,8 +32,8 @@ import (
 
 var (
 	imageGameBG   *ebiten.Image
-	imageWindows  *ebiten.Image
-	imageGameover *ebiten.Image
+	imageWindows  = ebiten.NewImage(ScreenWidth, ScreenHeight)
+	imageGameover = ebiten.NewImage(ScreenWidth, ScreenHeight)
 )
 
 func fieldWindowPosition() (x, y int) {
@@ -76,10 +76,7 @@ func init() {
 	if err != nil {
 		panic(err)
 	}
-	imageGameBG, _ = ebiten.NewImageFromImage(img, ebiten.FilterDefault)
-
-	// Windows
-	imageWindows, _ = ebiten.NewImage(ScreenWidth, ScreenHeight, ebiten.FilterDefault)
+	imageGameBG = ebiten.NewImageFromImage(img)
 
 	// Windows: Field
 	x, y := fieldWindowPosition()
@@ -104,7 +101,6 @@ func init() {
 	drawTextBox(imageWindows, "LINES", x, y, textBoxWidth())
 
 	// Gameover
-	imageGameover, _ = ebiten.NewImage(ScreenWidth, ScreenHeight, ebiten.FilterDefault)
 	imageGameover.Fill(color.NRGBA{0x00, 0x00, 0x00, 0x80})
 	y = (ScreenHeight - blockHeight) / 2
 	drawTextWithShadowCenter(imageGameover, "GAME OVER\n\nPRESS SPACE", 0, y, 1, color.White, ScreenWidth)

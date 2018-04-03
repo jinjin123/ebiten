@@ -29,11 +29,10 @@ import (
 
 var (
 	space *cp.Space
-	dot   *ebiten.Image
+	dot   = ebiten.NewImage(1, 1)
 )
 
 func init() {
-	dot, _ = ebiten.NewImage(1, 1, ebiten.FilterDefault)
 	dot.Fill(color.White)
 }
 

@@ -141,12 +141,10 @@ func playNote(freq float64) {
 }
 
 var (
-	pianoImage *ebiten.Image
+	pianoImage = ebiten.NewImage(screenWidth, screenHeight)
 )
 
 func init() {
-	pianoImage, _ = ebiten.NewImage(screenWidth, screenHeight, ebiten.FilterDefault)
-
 	const (
 		keyWidth = 24
 		y        = 48
