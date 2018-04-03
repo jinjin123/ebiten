@@ -134,7 +134,7 @@ func (p *Player) playSEIfNeeded() {
 	if !inpututil.IsKeyJustPressed(ebiten.KeyP) {
 		return
 	}
-	sePlayer, _ := audio.NewPlayerFromBytes(p.audioContext, p.seBytes)
+	sePlayer := audio.NewPlayerFromBytes(p.audioContext, p.seBytes)
 	sePlayer.Play()
 }
 
@@ -235,12 +235,8 @@ func update(screen *ebiten.Image) error {
 }
 
 func main() {
-	audioContext, err := audio.NewContext(sampleRate)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	musicPlayer, err = NewPlayer(audioContext)
+	var err error
+	musicPlayer, err = NewPlayer(audio.NewContext(sampleRate))
 	if err != nil {
 		log.Fatal(err)
 	}

@@ -43,15 +43,7 @@ func TestMain(m *testing.M) {
 	os.Exit(code)
 }
 
-var context *Context
-
-func init() {
-	var err error
-	context, err = NewContext(44100)
-	if err != nil {
-		panic(err)
-	}
-}
+var context = NewContext(44100)
 
 // Issue #746
 func TestGC(t *testing.T) {
