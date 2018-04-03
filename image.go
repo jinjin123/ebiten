@@ -234,7 +234,7 @@ func (i *Image) fill(r, g, b, a uint8) {
 	}
 	op.CompositeMode = CompositeModeCopy
 	op.Filter = FilterNearest
-	i.drawImage(emptyImage, op)
+	i.DrawImage(emptyImage, op)
 }
 
 func (i *Image) disposeMipmaps() {
@@ -272,14 +272,7 @@ func (i *Image) disposeMipmaps() {
 //   * All Filter values are same
 //
 // For more performance tips, see https://github.com/hajimehoshi/ebiten/wiki/Performance-Tips.
-//
-// DrawImage always returns nil as of 1.5.0-alpha.
-func (i *Image) DrawImage(img *Image, options *DrawImageOptions) error {
-	i.drawImage(img, options)
-	return nil
-}
-
-func (i *Image) drawImage(img *Image, options *DrawImageOptions) {
+func (i *Image) DrawImage(img *Image, options *DrawImageOptions) {
 	i.copyCheck()
 	if img.isDisposed() {
 		panic("ebiten: the given image to DrawImage must not be disposed")
