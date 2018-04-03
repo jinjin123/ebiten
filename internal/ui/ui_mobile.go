@@ -30,10 +30,10 @@ import (
 	"golang.org/x/mobile/event/touch"
 	"golang.org/x/mobile/gl"
 
-	"github.com/hajimehoshi/ebiten/internal/devicescale"
-	"github.com/hajimehoshi/ebiten/internal/graphicsdriver/opengl"
-	"github.com/hajimehoshi/ebiten/internal/hooks"
-	"github.com/hajimehoshi/ebiten/internal/input"
+	"github.com/hajimehoshi/ebiten/v2/internal/devicescale"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicsdriver/opengl"
+	"github.com/hajimehoshi/ebiten/v2/internal/hooks"
+	"github.com/hajimehoshi/ebiten/v2/internal/input"
 )
 
 var (

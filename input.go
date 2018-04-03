@@ -15,8 +15,8 @@
 package ebiten
 
 import (
-	"github.com/hajimehoshi/ebiten/internal/input"
-	"github.com/hajimehoshi/ebiten/internal/ui"
+	"github.com/hajimehoshi/ebiten/v2/internal/input"
+	"github.com/hajimehoshi/ebiten/v2/internal/ui"
 )
 
 // InputChars return "printable" runes read from the keyboard at the time update is called.

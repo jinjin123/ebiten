@@ -21,8 +21,8 @@ import (
 	"math"
 	"runtime"
 
-	"github.com/hajimehoshi/ebiten/internal/graphics"
-	"github.com/hajimehoshi/ebiten/internal/shareable"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphics"
+	"github.com/hajimehoshi/ebiten/v2/internal/shareable"
 )
 
 // emptyImage is an empty image used for filling other images with a uniform color.

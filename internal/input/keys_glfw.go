@@ -22,7 +22,7 @@
 package input
 
 import (
-	"github.com/hajimehoshi/ebiten/internal/glfw"
+	"github.com/hajimehoshi/ebiten/v2/internal/glfw"
 )
 
 var glfwKeyCodeToKey = map[glfw.Key]Key{

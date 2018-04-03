@@ -1,4 +1,4 @@
-module github.com/hajimehoshi/ebiten
+module github.com/hajimehoshi/ebiten/v2
 
 require (
 	github.com/go-gl/glfw v0.0.0-20181008143348-547915429f42

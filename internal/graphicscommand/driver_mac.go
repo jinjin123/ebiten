@@ -18,8 +18,8 @@
 package graphicscommand
 
 import (
-	"github.com/hajimehoshi/ebiten/internal/graphicsdriver"
-	"github.com/hajimehoshi/ebiten/internal/graphicsdriver/metal"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicsdriver"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicsdriver/metal"
 )
 
 func Driver() graphicsdriver.GraphicsDriver {

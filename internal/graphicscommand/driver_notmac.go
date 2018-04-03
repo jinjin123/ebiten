@@ -17,8 +17,8 @@
 package graphicscommand
 
 import (
-	"github.com/hajimehoshi/ebiten/internal/graphicsdriver"
-	"github.com/hajimehoshi/ebiten/internal/graphicsdriver/opengl"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicsdriver"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicsdriver/opengl"
 )
 
 func Driver() graphicsdriver.GraphicsDriver {

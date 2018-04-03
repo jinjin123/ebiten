@@ -21,10 +21,10 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/hajimehoshi/ebiten"
-	"github.com/hajimehoshi/ebiten/internal/graphics"
-	. "github.com/hajimehoshi/ebiten/internal/shareable"
-	"github.com/hajimehoshi/ebiten/internal/testflock"
+	"github.com/hajimehoshi/ebiten/v2"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphics"
+	. "github.com/hajimehoshi/ebiten/v2/internal/shareable"
+	"github.com/hajimehoshi/ebiten/v2/internal/testflock"
 )
 
 func TestMain(m *testing.M) {

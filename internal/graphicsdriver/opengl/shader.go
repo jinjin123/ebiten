@@ -18,7 +18,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hajimehoshi/ebiten/internal/graphics"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphics"
 )
 
 type shaderID int

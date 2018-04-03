@@ -17,7 +17,7 @@ package restorable
 import (
 	"image"
 
-	"github.com/hajimehoshi/ebiten/internal/graphicscommand"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicscommand"
 )
 
 // restoringEnabled indicates if restoring happens or not.

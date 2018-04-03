@@ -22,7 +22,7 @@ import (
 
 	"github.com/gopherjs/gopherwasm/js"
 
-	"github.com/hajimehoshi/ebiten/internal/graphics"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphics"
 )
 
 type (

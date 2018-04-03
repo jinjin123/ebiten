@@ -42,9 +42,9 @@ import (
 
 	"github.com/hajimehoshi/oto"
 
-	"github.com/hajimehoshi/ebiten/internal/clock"
-	"github.com/hajimehoshi/ebiten/internal/hooks"
-	"github.com/hajimehoshi/ebiten/internal/web"
+	"github.com/hajimehoshi/ebiten/v2/internal/clock"
+	"github.com/hajimehoshi/ebiten/v2/internal/hooks"
+	"github.com/hajimehoshi/ebiten/v2/internal/web"
 )
 
 type players struct {

@@ -21,9 +21,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/hajimehoshi/ebiten"
-	. "github.com/hajimehoshi/ebiten/audio"
-	"github.com/hajimehoshi/ebiten/internal/testflock"
+	"github.com/hajimehoshi/ebiten/v2"
+	. "github.com/hajimehoshi/ebiten/v2/audio"
+	"github.com/hajimehoshi/ebiten/v2/internal/testflock"
 )
 
 func TestMain(m *testing.M) {

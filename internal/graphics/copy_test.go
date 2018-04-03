@@ -21,7 +21,7 @@ import (
 	"image/color/palette"
 	"testing"
 
-	. "github.com/hajimehoshi/ebiten/internal/graphics"
+	. "github.com/hajimehoshi/ebiten/v2/internal/graphics"
 )
 
 func TestCopyImage(t *testing.T) {

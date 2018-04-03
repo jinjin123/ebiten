@@ -22,7 +22,7 @@ import (
 
 	mgl "golang.org/x/mobile/gl"
 
-	"github.com/hajimehoshi/ebiten/internal/graphics"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphics"
 )
 
 type (

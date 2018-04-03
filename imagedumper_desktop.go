@@ -26,8 +26,8 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/hajimehoshi/ebiten/internal/png"
-	"github.com/hajimehoshi/ebiten/internal/shareable"
+	"github.com/hajimehoshi/ebiten/v2/internal/png"
+	"github.com/hajimehoshi/ebiten/v2/internal/shareable"
 )
 
 // availableFilename returns a filename that is valid as a new file or directory.

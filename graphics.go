@@ -15,7 +15,7 @@
 package ebiten
 
 import (
-	"github.com/hajimehoshi/ebiten/internal/graphics"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphics"
 )
 
 // Filter represents the type of texture filter to be used when an image is maginified or minified.

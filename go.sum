@@ -16,6 +16,7 @@ github.com/gopherjs/gopherwasm v1.0.1 h1:Gmj9RMDjh+P9EFzzQltoCtjAxR5mUkaJqaNPfea
 github.com/gopherjs/gopherwasm v1.0.1/go.mod h1:SkZ8z7CWBz5VXbhJel8TxCmAcsQqzgWGR/8nMhyhZSI=
 github.com/hajimehoshi/bitmapfont v1.1.1 h1:H1wQ6QXA8kSp+plARsIMCTVb5iOZHq/OP3uyL5NzLuU=
 github.com/hajimehoshi/bitmapfont v1.1.1/go.mod h1:Hamfxgney7tDSmVOSDh2AWzoDH70OaC+P24zc02Gum4=
+github.com/hajimehoshi/ebiten v1.8.1 h1:uGYKruhaUCRn2dH14hz/8roVb6UomwFysKFXFSy4ONM=
 github.com/hajimehoshi/go-mp3 v0.1.1 h1:Y33fAdTma70fkrxnc9u50Uq0lV6eZ+bkAlssdMmCwUc=
 github.com/hajimehoshi/go-mp3 v0.1.1/go.mod h1:4i+c5pDNKDrxl1iu9iG90/+fhP37lio6gNhjCx9WBJw=
 github.com/hajimehoshi/oto v0.1.1/go.mod h1:hUiLWeBQnbDu4pZsAhOnGqMI1ZGibS6e2qhQdfpwz04=

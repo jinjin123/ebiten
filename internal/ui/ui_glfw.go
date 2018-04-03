@@ -26,12 +26,12 @@ import (
 	"sync"
 	"time"
 
-	"github.com/hajimehoshi/ebiten/internal/devicescale"
-	"github.com/hajimehoshi/ebiten/internal/glfw"
-	"github.com/hajimehoshi/ebiten/internal/graphicscommand"
-	"github.com/hajimehoshi/ebiten/internal/hooks"
-	"github.com/hajimehoshi/ebiten/internal/input"
-	"github.com/hajimehoshi/ebiten/internal/mainthread"
+	"github.com/hajimehoshi/ebiten/v2/internal/devicescale"
+	"github.com/hajimehoshi/ebiten/v2/internal/glfw"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicscommand"
+	"github.com/hajimehoshi/ebiten/v2/internal/hooks"
+	"github.com/hajimehoshi/ebiten/v2/internal/input"
+	"github.com/hajimehoshi/ebiten/v2/internal/mainthread"
 )
 
 type userInterface struct {

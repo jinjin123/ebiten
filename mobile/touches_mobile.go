@@ -17,8 +17,8 @@
 package mobile
 
 import (
-	"github.com/hajimehoshi/ebiten/internal/input"
-	"github.com/hajimehoshi/ebiten/internal/ui"
+	"github.com/hajimehoshi/ebiten/v2/internal/input"
+	"github.com/hajimehoshi/ebiten/v2/internal/ui"
 )
 
 type position struct {

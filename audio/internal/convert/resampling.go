@@ -18,7 +18,7 @@ import (
 	"io"
 	"math"
 
-	"github.com/hajimehoshi/ebiten/audio"
+	"github.com/hajimehoshi/ebiten/v2/audio"
 )
 
 var cosTable = [65536]float64{}

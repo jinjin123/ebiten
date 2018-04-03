@@ -239,7 +239,7 @@ package ebiten
 import (
 	"strings"
 
-	"github.com/hajimehoshi/ebiten/internal/input"
+	"github.com/hajimehoshi/ebiten/v2/internal/input"
 )
 
 // A Key represents a keyboard key.
@@ -296,7 +296,7 @@ const inputKeysGlfwTmpl = `{{.License}}
 package input
 
 import (
-	"github.com/hajimehoshi/ebiten/internal/glfw"
+	"github.com/hajimehoshi/ebiten/v2/internal/glfw"
 )
 
 var glfwKeyCodeToKey = map[glfw.Key]Key{

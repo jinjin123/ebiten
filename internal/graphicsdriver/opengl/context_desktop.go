@@ -23,9 +23,9 @@ import (
 	"errors"
 	"fmt"
 
-	"github.com/hajimehoshi/ebiten/internal/graphics"
-	"github.com/hajimehoshi/ebiten/internal/graphicsdriver/opengl/gl"
-	"github.com/hajimehoshi/ebiten/internal/mainthread"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphics"
+	"github.com/hajimehoshi/ebiten/v2/internal/graphicsdriver/opengl/gl"
+	"github.com/hajimehoshi/ebiten/v2/internal/mainthread"
 )
 
 type (
