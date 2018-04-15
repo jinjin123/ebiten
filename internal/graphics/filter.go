@@ -17,8 +17,7 @@ package graphics
 type Filter int
 
 const (
-	FilterDefault Filter = iota
-	FilterNearest
+	FilterNearest Filter = iota
 	FilterLinear
 	FilterScreen
 )

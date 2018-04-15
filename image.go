@@ -135,8 +135,6 @@ type Image struct {
 
 	bounds   *image.Rectangle
 	original *Image
-
-	filter Filter
 }
 
 func (i *Image) copyCheck() {
@@ -229,7 +227,6 @@ func (i *Image) fill(r, g, b, a uint8) {
 		op.ColorM.Translate(rf, gf, bf, af)
 	}
 	op.CompositeMode = CompositeModeCopy
-	op.Filter = FilterNearest
 	i.DrawImage(emptyImage, op)
 }
 
@@ -301,17 +298,10 @@ func (i *Image) DrawImage(img *Image, options *DrawImageOptions) {
 	geom := &options.GeoM
 	mode := graphics.CompositeMode(options.CompositeMode)
 
-	filter := graphics.FilterNearest
-	if options.Filter != FilterDefault {
-		filter = graphics.Filter(options.Filter)
-	} else if img.filter != FilterDefault {
-		filter = graphics.Filter(img.filter)
-	}
-
 	a, b, c, d, tx, ty := geom.elements()
 
 	level := 0
-	if filter == graphics.FilterLinear {
+	if graphics.Filter(options.Filter) == graphics.FilterLinear {
 		det := geom.det()
 		if det == 0 {
 			return
@@ -344,7 +334,7 @@ func (i *Image) DrawImage(img *Image, options *DrawImageOptions) {
 		src := img.mipmap.original()
 		vs := src.QuadVertices(bounds.Min.X, bounds.Min.Y, bounds.Max.X, bounds.Max.Y, a, b, c, d, tx, ty, cr, cg, cb, ca)
 		is := graphics.QuadIndices()
-		i.mipmap.original().DrawImage(src, vs, is, colorm, mode, filter, graphics.AddressClampToZero)
+		i.mipmap.original().DrawImage(src, vs, is, colorm, mode, graphics.Filter(options.Filter), graphics.AddressClampToZero)
 	} else if src := img.mipmap.level(bounds, level); src != nil {
 		w, h := src.Size()
 		s := 1 << uint(level)
@@ -354,7 +344,7 @@ func (i *Image) DrawImage(img *Image, options *DrawImageOptions) {
 		d *= float32(s)
 		vs := src.QuadVertices(0, 0, w, h, a, b, c, d, tx, ty, cr, cg, cb, ca)
 		is := graphics.QuadIndices()
-		i.mipmap.original().DrawImage(src, vs, is, colorm, mode, filter, graphics.AddressClampToZero)
+		i.mipmap.original().DrawImage(src, vs, is, colorm, mode, graphics.Filter(options.Filter), graphics.AddressClampToZero)
 	}
 	i.disposeMipmaps()
 }
@@ -407,7 +397,7 @@ type DrawTrianglesOptions struct {
 	CompositeMode CompositeMode
 
 	// Filter is a type of texture filter.
-	// The default (zero) value is FilterDefault.
+	// The default (zero) value is FilterNearest.
 	Filter Filter
 
 	// Address is a sampler address mode.
@@ -455,13 +445,6 @@ func (i *Image) DrawTriangles(vertices []Vertex, indices []uint16, img *Image, o
 
 	mode := graphics.CompositeMode(options.CompositeMode)
 
-	filter := graphics.FilterNearest
-	if options.Filter != FilterDefault {
-		filter = graphics.Filter(options.Filter)
-	} else if img.filter != FilterDefault {
-		filter = graphics.Filter(img.filter)
-	}
-
 	vs := make([]float32, len(vertices)*graphics.VertexFloatNum)
 	src := img.mipmap.original()
 	r := img.Bounds()
@@ -471,7 +454,7 @@ func (i *Image) DrawTriangles(vertices []Vertex, indices []uint16, img *Image, o
 			float32(r.Min.X), float32(r.Min.Y), float32(r.Max.X), float32(r.Max.Y),
 			v.ColorR, v.ColorG, v.ColorB, v.ColorA)
 	}
-	i.mipmap.original().DrawImage(img.mipmap.original(), vs, indices, options.ColorM.impl, mode, filter, graphics.Address(options.Address))
+	i.mipmap.original().DrawImage(img.mipmap.original(), vs, indices, options.ColorM.impl, mode, graphics.Filter(options.Filter), graphics.Address(options.Address))
 	i.disposeMipmaps()
 }
 
@@ -603,7 +586,7 @@ type DrawImageOptions struct {
 	CompositeMode CompositeMode
 
 	// Filter is a type of texture filter.
-	// The default (zero) value is FilterDefault, which is same as FilterNearest.
+	// The default (zero) value is FilterNearest.
 	Filter Filter
 
 	// Deprecated (as of 1.9.0-alpha): Use SubImage instead.
@@ -667,7 +650,6 @@ func NewImageFromImage(source image.Image) *Image {
 func newImageWithScreenFramebuffer(width, height int) *Image {
 	i := &Image{
 		mipmap: newMipmap(shareable.NewScreenFramebufferImage(width, height)),
-		filter: FilterDefault,
 	}
 	i.addr = i
 	runtime.SetFinalizer(i, (*Image).Dispose)
