@@ -25,11 +25,11 @@ import (
 // TPS represents a default ticks per second, that represents how many times game updating happens in a second.
 const DefaultTPS = 60
 
-// FPS is deprecated as of 1.8.0-alpha: Use DefaultTPS instead.
-const FPS = DefaultTPS
-
-// CurrentFPS returns the current number of FPS (frames per second), that represents
-// how many swapping buffer happens per second.
+// CurrentFPS returns the current number of frames per second of rendering.
+//
+// The returned value FPS (frames per second) that represents how many times rendering happens in a
+// second and NOT TPS (ticks per second) that represents how many times logical game updating (a
+// passed function to Run) happens in a second.
 //
 // On some environments, CurrentFPS doesn't return a reliable value since vsync doesn't work well there.
 // If you want to measure the application's speed, Use CurrentTPS.
