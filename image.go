@@ -283,16 +283,6 @@ func (i *Image) DrawImage(img *Image, options *DrawImageOptions) {
 		options = &DrawImageOptions{}
 	}
 
-	bounds := img.Bounds()
-
-	// SourceRect is deprecated. This implementation is for backward compatibility.
-	if options.SourceRect != nil {
-		bounds = bounds.Intersect(*options.SourceRect)
-		if bounds.Empty() {
-			return
-		}
-	}
-
 	geom := &options.GeoM
 	mode := graphics.CompositeMode(options.CompositeMode)
 
@@ -328,6 +318,7 @@ func (i *Image) DrawImage(img *Image, options *DrawImageOptions) {
 		colorm = nil
 	}
 
+	bounds := img.Bounds()
 	if level == 0 {
 		src := img.mipmap.original()
 		vs := src.QuadVertices(bounds.Min.X, bounds.Min.Y, bounds.Max.X, bounds.Max.Y, a, b, c, d, tx, ty, cr, cg, cb, ca)
@@ -586,9 +577,6 @@ type DrawImageOptions struct {
 	// Filter is a type of texture filter.
 	// The default (zero) value is FilterNearest.
 	Filter Filter
-
-	// Deprecated (as of 1.9.0-alpha): Use SubImage instead.
-	SourceRect *image.Rectangle
 }
 
 // NewImage returns an empty image.
