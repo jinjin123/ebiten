@@ -18,6 +18,7 @@ package ui
 
 import (
 	"errors"
+	"fmt"
 	"image"
 	"runtime"
 	"sync"
@@ -141,7 +142,17 @@ func appMain(a app.App) {
 	}
 }
 
-func Run(width, height int, scale float64, title string, g GraphicsContext, mainloop bool) error {
+func Run(width, height int, scale float64, title string, g GraphicsContext, mainloop bool) (err error) {
+	defer func() {
+		if r := recover(); r != nil {
+			var ok bool
+			err, ok = r.(error)
+			if !ok {
+				err = fmt.Errorf("ebiten: %v", r)
+			}
+		}
+	}()
+
 	u := currentUI
 
 	u.m.Lock()
